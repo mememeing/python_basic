@@ -1,0 +1,103 @@
+#연락처
+
+class Contact:
+    def __init__(self. name, phone_number, email, addr):
+        self.name = name
+        self.phone_number = phone_number
+        self.email = email
+        self.addr = addr
+
+    def print_info(self):
+        print("Name: ", self.name)
+        print("Phone Number: ", self.phone_number)
+        print("E-mail: ", self.e_mail)
+        print("Address: ", self.addr)
+
+def set_contact():
+    name = input("Name: ")
+    phone_number = input("Phone Number: ")
+    e_mail = input("E-mail: ")
+    addr = input("Address: ")
+    contact = Contact(name, phone_number, e_mail, addr)
+    return contact
+
+def print_contact(contact_list):
+    for contact in contact_list:
+        contact.print_info()
+
+def delete_contact(contact_list, name):
+    for i, contact in enumerater(contact_list):
+        if contact.name == name:
+            del contact_list[i]
+
+def print_menu():
+    print("1. 연락처 입력")
+    print("2. 연락처 출력")
+    print("3. 연락처 삭제")
+    print("4. 종료")
+    menu = input("메뉴선택: ")
+    return int(menu)
+
+def run():
+    contact_list = []
+    while 1:
+        menu = print_menu()
+        if menu == 1:
+            contact = set_contact()
+            contact_list.append(contact)
+        elif menu == 2:
+            print_contact(contat_list)
+        elif menu == 3:
+            name = input("Name: ")
+            delete_contact(contact_list, name)
+        elif menu == 4:
+            break
+
+if __name__ == "__main__":
+    run()
+
+
+
+
+
+
+-------------------------------------------------
+
+#가장 가벼운 바구니에 무거운 물체 넣기
+
+#컴퓨터가 몇 대 있고 연산해야할 프로그램도 몇 개 있습니다. 가장 최적화 된 프로그램 대 컴퓨터 분배를 수행할 수 있는 프로그램을 작성하세요.
+예) 컴퓨터는 2대가 있고, 프로그램의 수행시간은 각 3분, 5분, 2분이라면, 컴퓨터 하나는 3분, 2분짜리 프로그램을 수행하고 다른 컴퓨터는 5분짜리 프로그램을 수행하면 됩니다.
+
+
+# outlist가 바로 바구니(컴퓨터)들의 목록이구요,
+sumout은 바구니 한 개마다 담겨진 빵(수행할 프로그램)의 합계를 갖는 목록
+coms는 함수의 인자로 받은 컴퓨터 대수(바구니의 개수)였죠?
+coms 값이 3이라면 위의 for 문을 수행한 후에
+outlist는 [[], [], []]와 같이 되고, sumout은 [0, 0, 0]이 됩니다.
+나중에 함수가 모두 실행되고 나면 outlist에는 결과값이 [[22], [15, 3, 2], [13, 6]]와 같이 담기고,
+그 때 sumout은 [22, 20, 19]과 같이 되어있도록 할 생각이지요.
+
+def prg2com(inlist, coms):
+    outlist = []
+    sumout = []
+    for x in range(coms):
+        outlist.append([])
+        sumout.append(0)
+
+    inlist.sort(reverse=True)
+
+    for bread in inlist:
+        lowbasket = sumout.index(min(sumout))
+        outlist[lowbasket].append(bread)
+        sumout[lowbasket]+=bread
+
+    return outlist
+
+print (prg2com([3,15,6,22,13,2],3))
+
+
+
+
+-----------------------------------------------------
+
+흑흑
