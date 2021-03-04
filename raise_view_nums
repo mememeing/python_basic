@@ -1,0 +1,10 @@
+import webbrowser
+import time
+
+list1 = [
+    "https://blog.naver.com/jinay98"
+]
+
+for url in list1:
+    webbrowser.open(url)
+    time.sleep(4)
